@@ -31,13 +31,12 @@ export default function LoginLayout({ children, illustration, title }) {
         <Typography variant="h3" sx={{ mb: 10, maxWidth: 480, textAlign: 'center' }}>
           {title || 'Hi, welcome!'}
         </Typography>
-
         
         <Image
           disabledEffect
           visibleByDefault
           alt="auth"
-          src={illustration || '/assets/illustrations/illustration.png'}
+          src={illustration || 'assets/illustrations/Illustration.png'}
           sx={{ maxWidth: 720 }}
         />
 

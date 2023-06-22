@@ -8,6 +8,9 @@ import { defaultLang } from './config-lang';
 //
 import enLocales from './langs/en';
 
+import uzLocales from './langs/uz';
+
+
 // ----------------------------------------------------------------------
 
 let lng = defaultLang.value;
@@ -24,6 +27,7 @@ i18n
   .init({
     resources: {
       en: { translations: enLocales },
+      uz: { translations: uzLocales }
     },
     lng,
     fallbackLng: defaultLang.value,

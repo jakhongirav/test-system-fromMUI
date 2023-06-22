@@ -22,7 +22,7 @@ const navConfig = [
   // ----------------------------------------------------------------------
   {
     items: [
-      { title: 'Bosh sahifa', path: PATH_DASHBOARD.stats, icon: ICONS.dashboard, roles: ['admin', 'student'] },
+      { title: 'app', path: PATH_DASHBOARD.stats, icon: ICONS.dashboard, roles: ['admin', 'student'] },
       { title: 'Imtihon kunlari', path: PATH_DASHBOARD.examdates, icon: ICONS.calendar, roles: ['student'] },
       { title: 'Natijalar', path: PATH_DASHBOARD.results, icon: ICONS.resultsIcon, roles: ['admin'] },
       { title: 'Test Savollari', path: PATH_DASHBOARD.examquestions, icon: ICONS.questionMark, roles: ['student'] },

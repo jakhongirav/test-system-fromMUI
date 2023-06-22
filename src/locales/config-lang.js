@@ -1,6 +1,7 @@
 // @mui
 import { enUS, ruRU } from '@mui/material/locale';
 
+
 // PLEASE REMOVE `LOCAL STORAGE` WHEN YOU CHANGE SETTINGS.
 // ----------------------------------------------------------------------
 
@@ -14,8 +15,14 @@ export const allLangs = [
   {
     label: 'Russian',
     value: 'ru',
-    systemValue: ruRU,
+    systemValue: 'ruRu',
     icon: '/assets/icons/flags/ic_flag_ru.png',
+  },
+  {
+    label: 'Uzbek',
+    value: 'uz',
+    systemValue: 'ruRu',
+    icon: '/assets/icons/flags/ic_flag_uz.png',
   },
 ];
 
