@@ -16,6 +16,7 @@ import {
   Results,
   ExamQuestions,
   Admins,
+  StarterTest,
 
   //* @Dashboard Exam Questions
   QuestionsCreate,
@@ -49,15 +50,18 @@ export default function Router() {
       ),
       children: [
         { element: <Navigate to={PATH_AFTER_LOGIN} replace />, index: true, },
-        { path: 'stats', element: <Stats /> },
         { path: 'examdates', element: <ExamDates /> },
         { path: 'results', element: <Results /> },
         { path: 'admins', element: <Admins /> },
-
+        
         //* Dashboard Exam Questions
         { path: 'examquestions', element: <ExamQuestions /> },
         { path: 'examquestions/questionscreate', element: <QuestionsCreate /> },
         { path: 'examquestions/:id/questionsedit', element: <QuestionsEdit /> },
+        
+        //* Dashboard Stats
+        { path: 'stats', element: <Stats /> },
+        { path: 'stats/startertest', element: <StarterTest /> }
 
         // { path: 'two', element: <PageTwo /> },
         // { path: 'three', element: <PageThree /> },

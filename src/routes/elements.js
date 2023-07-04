@@ -16,7 +16,6 @@ const Loadable = (Component) => (props) =>
 export const LoginPage = Loadable(lazy(() => import('../pages/LoginPage')));
 
 //* Pages 
-export const Stats = Loadable(lazy(() => import('../pages/Stats')));
 export const Results = Loadable(lazy(() => import('../pages/Results')));
 export const Admins = Loadable(lazy(() => import('../pages/Admins')));
 
@@ -29,6 +28,10 @@ export const QuestionsEdit = Loadable(lazy(() => import('../sections/@dashboard/
 
 //* Dashboard Exam Dates
 export const ExamDates = Loadable(lazy(() => import('../pages/ExamDates')));
+
+//* Dashboard Stats
+export const Stats = Loadable(lazy(() => import('../pages/Stats')));
+export const StarterTest = Loadable(lazy(() => import('../sections/@dashboard/stats/StarterTest')));
 
 
 

@@ -26,9 +26,11 @@ export const PATH_DASHBOARD = {
   demoEdit: path(ROOTS_DASHBOARD, '/invoice/e99f09a7-dd88-49d5-b1c8-1daf80c2d7b1/edit'),
   questionsedit: {
     edit: (id) => path(ROOTS_DASHBOARD, `/examquestions/${id}/questionsedit`),
-  }
+  },
 
-  // user:
+  // user Stats:
+  startertest: path(ROOTS_DASHBOARD, 'stats/startertest')
+
   //   root: path(ROOTS_DASHBOARD, '/user'),
   //   four: path(ROOTS_DASHBOARD, '/user/four'),
   //   five: path(ROOTS_DASHBOARD, '/user/five'),
