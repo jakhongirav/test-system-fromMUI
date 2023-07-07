@@ -117,11 +117,12 @@ export default function GeneralStatisticsPage() {
               }}>Imtihon topshirish sanasi / vaqti!</Typography>
             </Stack>
             <Stack direction='row' alignItems='center' justifyContent='space-between' sx={{
-              maxHeight: '274px',
+              minHeight: '274px',
               padding: '30px 80px',
-              background: 'var(--light-opacity-color-primary-primary-8, rgba(115, 103, 240, 0.08))',
+              background: 'rgba(115, 103, 240, 0.08)',
+              position: 'relative'
             }}>
-              <Stack direction='column' spacing={7}>
+              <Stack direction='column' spacing={5}>
                 <Stack direction='column' spacing={2}>
                   <Typography variant='h3' sx={{
                     color: 'var(--light-solid-color-primary-primary-500-base, #7367F0)',
@@ -149,13 +150,20 @@ export default function GeneralStatisticsPage() {
                   Testni boshlash
                 </Button>
               </Stack>
-              <Stack direction='row'>
+              <Stack direction='row' sx={{
+                top: '-50px', right: 0,
+                position: 'absolute',
+                display: {
+                  xs: 'none',
+                  lg: 'block'
+                }
+              }} >
                 <Image
                   disabledEffect
                   visibleByDefault
                   alt="auth"
                   src='/assets/laptopGirl.png'
-                  sx={{ maxWidth: 273 }}
+                  sx={{ maxWidth: 273, }}
                 />
               </Stack>
             </Stack>
