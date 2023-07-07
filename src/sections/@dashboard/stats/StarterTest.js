@@ -11,8 +11,7 @@ import { PATH_DASHBOARD } from '../../../routes/paths';
 
 import { useSettingsContext } from '../../../components/settings';
 
-
-const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+import { _questions } from '../../../_mock/arrays';
 
 export default function StarterTest() {
 
@@ -59,6 +58,8 @@ export default function StarterTest() {
     setActiveStep(0);
   };
 
+    const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+
     return (
     <>
     <Stack direction='row' justifyContent='space-between'>
@@ -83,9 +84,13 @@ export default function StarterTest() {
         <link rel="icon" href="/favicon/favicon.ico" type="image/x-icon" />
     </Helmet>
         
-    <Container maxWidth={themeStretch ? false : 'xl'}>
-    <Stepper activeStep={activeStep}>
-        {steps.map((label, index) => {
+    <Container maxWidth={themeStretch ? false : 'xl'} sx={{
+        borderRadius: '6px',
+        boxShadow: '0px 4px 18px 0px rgba(75, 70, 92, 0.10)',
+        padding: '24px',
+    }}>
+     <Stepper activeStep={activeStep}>
+       {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
           if (isStepOptional(index)) {
@@ -100,7 +105,7 @@ export default function StarterTest() {
             </Step>
           );
         })}
-      </Stepper>
+     </Stepper>
       {activeStep === steps.length ? (
         <>
           <Paper
@@ -129,7 +134,7 @@ export default function StarterTest() {
               bgcolor: (theme) => alpha(theme.palette.grey[500], 0.12),
             }}
           >
-            <Typography sx={{ my: 1 }}> Step {activeStep + 1}</Typography>
+            <Typography sx={{ my: 1 }}>Step {activeStep + 1}</Typography>
           </Paper>
           <Box sx={{ display: 'flex' }}>
             <Button color="inherit" disabled={activeStep === 0} onClick={handleBack} sx={{ mr: 1 }}>

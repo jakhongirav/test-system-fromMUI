@@ -23,7 +23,7 @@ import { PATH_DASHBOARD } from '../routes/paths';
 // utils
 import { fTimestamp } from '../utils/formatTime';
 // _mock_
-import { _questions } from '../_mock/arrays';
+import {  } from '../_mock/arrays';
 // components
 import Label from '../components/label';
 import Iconify from '../components/iconify';
@@ -87,7 +87,7 @@ export default function ExamQuestions() {
     onChangeRowsPerPage,
   } = useTable({ defaultOrderBy: 'createDate' });
 
-  const [tableData, setTableData] = useState(_questions);
+  const [tableData, setTableData] = useState();
 
   const [filterName, setFilterName] = useState('');
 

@@ -96,7 +96,7 @@ export default function QuestionsNewEditForm({ isEdit, currentQuestion }) {
 
   return (
     <FormProvider methods={methods}>
-      <Card>
+      <Card>background
         <QuestionsNewEditStatusDate currentQuestion={currentQuestion} />
 
         <QuestionsNewEditDetails />
