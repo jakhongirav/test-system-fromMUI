@@ -2,8 +2,7 @@ import { Helmet } from 'react-helmet-async';
 
 import { useState } from 'react';
 
-import { Container, Stack, Typography, Button, Box, Step, Paper, Stepper, StepLabel } from '@mui/material';
-import { alpha } from '@mui/material/styles';
+import { Container, Stack, Typography, Button } from '@mui/material';
 
 import CustomBreadcrumbs from '../../../components/custom-breadcrumbs';
 
@@ -13,60 +12,35 @@ import { useSettingsContext } from '../../../components/settings';
 
 import { _questions } from '../../../_mock/arrays';
 
+import Iconify from '../../../components/iconify/Iconify';
+
 export default function StarterTest() {
 
   const { themeStretch } = useSettingsContext();
 
-  const [activeStep, setActiveStep] = useState(0);
-  const [skipped, setSkipped] = useState(new Set());
-
-  const isStepOptional = (step) => step === 1;
-
-  const isStepSkipped = (step) => skipped.has(step);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
 
   const handleNext = () => {
-    let newSkipped = skipped;
-    if (isStepSkipped(activeStep)) {
-      newSkipped = new Set(newSkipped.values());
-      newSkipped.delete(activeStep);
-    }
+    setCurrentQuestion(currentQuestion + 1)
 
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped(newSkipped);
-  };
+  }
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-  };
+    setCurrentQuestion(currentQuestion - 1)
+  }
 
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
-    }
+  const lastQuestion = currentQuestion === _questions.length
 
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped((prevSkipped) => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  };
 
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-
-  const steps = ['Select campaign settings', 'Create an ad group', 'Create an ad', 'Select campaign settings', 'Create an ad group', 'Create an ad', 'Select campaign settings', 'Create an ad group', 'Create an ad', 'Select campaign settings', 'Create an ad group', 'Create an ad'];
 
   return (
     <>
-      <Stack direction='row' justifyContent='space-between'>
+      <Stack direction='row' justifyContent='space-between' alignItems='center'>
         <CustomBreadcrumbs
           heading="Bosh sahifa"
           sx={{
-            p: '0 24px'
+            p: '0 24px',
+            m: 0
           }}
           links={[
             {
@@ -76,7 +50,9 @@ export default function StarterTest() {
           ]}
         />
 
-
+        <Button variant='contained' color='success' size="medium" startIcon={<Iconify icon="mdi:clock-outline" />}>
+          1:34:23
+        </Button>
       </Stack>
 
       <Helmet>
@@ -88,70 +64,30 @@ export default function StarterTest() {
         borderRadius: '6px',
         boxShadow: '0px 4px 18px 0px rgba(75, 70, 92, 0.10)',
         padding: '24px',
+        mt: 3,
       }}>
-        <Stepper activeStep={activeStep}>
-          {steps.map((label, index) => {
-            const stepProps = {};
-            const labelProps = {};
-            if (isStepOptional(index)) {
-              labelProps.optional = <Typography variant="caption">Optional</Typography>;
-            }
-            if (isStepSkipped(index)) {
-              stepProps.completed = false;
-            }
-            return (
-              <Step key={label} {...stepProps}>
-                <StepLabel {...labelProps}>{label}</StepLabel>
-              </Step>
-            );
-          })}
-        </Stepper>
-        {activeStep === steps.length ? (
-          <>
-            <Paper
-              sx={{
-                p: 3,
-                my: 3,
-                minHeight: 120,
-                bgcolor: (theme) => alpha(theme.palette.grey[500], 0.12),
-              }}
-            >
-              <Typography sx={{ my: 1 }}>All steps completed - you&apos;re finished</Typography>
-            </Paper>
-
-            <Box sx={{ display: 'flex' }}>
-              <Box sx={{ flexGrow: 1 }} />
-              <Button onClick={handleReset}>Reset</Button>
-            </Box>
-          </>
-        ) : (
-          <>
-            <Paper
-              sx={{
-                p: 3,
-                my: 3,
-                minHeight: 120,
-                bgcolor: (theme) => alpha(theme.palette.grey[500], 0.12),
-              }}
-            >
-              <Typography sx={{ my: 1 }}>Step {activeStep + 1}</Typography>
-            </Paper>
-            <Box sx={{ display: 'flex' }}>
-              <Button color="inherit" disabled={activeStep === 0} onClick={handleBack} sx={{ mr: 1 }}>
-                Back
-              </Button>
-              <Box sx={{ flexGrow: 1 }} />
-              {isStepOptional(activeStep) && (
-                <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }}>
-                  Skip
-                </Button>
-              )}
-              <Button variant="contained" onClick={handleNext}>
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-              </Button>
-            </Box>
-          </>
-        )}
+        <Stack direction='row' spacing={1}>
+          {_questions.map((question, index) => (
+            <Stack direction='row' alignItems='center' spacing={1}>
+              <Button variant='contained' color={currentQuestion === index ? 'primary' : 'inherit'}>{index + 1}</Button>
+              {index + 1 !== _questions.length ? <Iconify icon='ep:arrow-right' /> : ''}
+            </Stack>
+          )
+          )}
+        </Stack>
+        <Stack direction='column' alignItems='center'>
+          <Stack>{currentQuestion}</Stack>
+          <Stack direction='row' justifyContent='space-between'>
+            <Button
+              onClick={handleBack}
+              disabled={currentQuestion === 0}
+            >Orqaga</Button>
+            <Button
+              onClick={handleNext}
+              disabled={lastQuestion}
+            >{lastQuestion ? 'Yuborish' : 'Oldinga'}</Button>
+          </Stack>
+        </Stack>
       </Container>
     </>
   )
