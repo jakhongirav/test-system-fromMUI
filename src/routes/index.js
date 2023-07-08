@@ -53,12 +53,12 @@ export default function Router() {
         { path: 'examdates', element: <ExamDates /> },
         { path: 'results', element: <Results /> },
         { path: 'admins', element: <Admins /> },
-        
+
         //* Dashboard Exam Questions
         { path: 'examquestions', element: <ExamQuestions /> },
         { path: 'examquestions/questionscreate', element: <QuestionsCreate /> },
         { path: 'examquestions/:id/questionsedit', element: <QuestionsEdit /> },
-        
+
         //* Dashboard Stats
         { path: 'stats', element: <Stats /> },
         { path: 'stats/startertest', element: <StarterTest /> }

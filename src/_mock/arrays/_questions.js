@@ -11,6 +11,8 @@ export const _questions = [
     id: 1,
     answer: randomInArray(['A', 'B', 'C', 'D']),
     status: randomInArray(['easy', 'normal', 'hard',]),
+    modified: false,
+    selected: 'B',
     subject: randomInArray(['Math', 'Physics']),
     options: {
       A: `x<-6; x>0`,
@@ -25,6 +27,8 @@ export const _questions = [
     id: 2,
     answer: randomInArray(['A', 'B', 'C', 'D']),
     status: randomInArray(['easy', 'normal', 'hard',]),
+    modified: false,
+    selected: '',
     subject: randomInArray(['Math', 'Physics']),
     options: {
       A: `x<-6; x>0`,
@@ -39,6 +43,8 @@ export const _questions = [
     id: 3,
     answer: randomInArray(['A', 'B', 'C', 'D']),
     status: randomInArray(['easy', 'normal', 'hard',]),
+    modified: false,
+    selected: '',
     subject: randomInArray(['Math', 'Physics']),
     options: {
       A: `x<-6; x>0`,
@@ -53,6 +59,8 @@ export const _questions = [
     id: 4,
     answer: randomInArray(['A', 'B', 'C', 'D']),
     status: randomInArray(['easy', 'normal', 'hard',]),
+    modified: false,
+    selected: '',
     subject: randomInArray(['Math', 'Physics']),
     options: {
       A: `x<-6; x>0`,
@@ -67,6 +75,8 @@ export const _questions = [
     id: 5,
     answer: randomInArray(['A', 'B', 'C', 'D']),
     status: randomInArray(['easy', 'normal', 'hard',]),
+    modified: false,
+    selected: '',
     subject: randomInArray(['Math', 'Physics']),
     options: {
       A: `x<-6; x>0`,
@@ -81,6 +91,8 @@ export const _questions = [
     id: 6,
     answer: randomInArray(['A', 'B', 'C', 'D']),
     status: randomInArray(['easy', 'normal', 'hard',]),
+    modified: false,
+    selected: '',
     subject: randomInArray(['Math', 'Physics']),
     options: {
       A: `x<-6; x>0`,

@@ -24,7 +24,7 @@ function NavSectionMini({ data, sx, ...other }) {
       {...other}
     >
       {data.map((group, index) => (
-        <Items key={group.subheader} items={group.items} isLastGroup={index + 1 === data.length} />
+        <Items key={group.subheader + index} items={group.items} isLastGroup={index + 1 === data.length} />
       ))}
     </Stack>
   );
